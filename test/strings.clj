@@ -51,4 +51,16 @@
   (testing "index-of"
     (is (= 2
            (str/index-of test-string "l"))))
+
+  (testing "capitalize"
+    (is (= "Hello there"
+           (str/capitalize "hELLo THEre"))))
+
+  (testing "lower-case"
+    (is (= "hello there"
+           (str/lower-case "HELLo there"))))
+
+  (testing "upper-case"
+    (is (= "HELLO THERE"
+           (str/upper-case "hello THere"))))
   )
