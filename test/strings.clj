@@ -47,4 +47,8 @@
   (testing "reverse"
     (is (= "oof"
            (str/reverse "foo"))))
+
+  (testing "index-of"
+    (is (= 2
+           (str/index-of test-string "l"))))
   )
