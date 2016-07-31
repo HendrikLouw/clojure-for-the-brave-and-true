@@ -29,7 +29,6 @@
     (is (= "one, two, three"
            (str/join ", " ["one" "two" "three"]))))
 
-
   (testing "str/escape"
     (is (= "for example prevent script tags &lt;script&gt;"
            (str/escape "for example prevent script tags <script>", {\< "&lt;" \> "&gt;"}))))
@@ -40,5 +39,12 @@
 
   (testing "str/replace"
     (is (= "It is light red"
-           (str/replace "It is pink" #"pink" "light red"))))
+           (str/replace "It is pink" #"pink" "light red")))
+    (is (= "lmostAay igPay atinLay"
+           (str/replace "Almost Pig Latin" #"\b(\w)(\w+)\b" "$2$1ay")))
+    )
+
+  (testing "reverse"
+    (is (= "oof"
+           (str/reverse "foo"))))
   )
