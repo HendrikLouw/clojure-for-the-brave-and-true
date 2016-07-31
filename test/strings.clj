@@ -1,27 +1,44 @@
-(ns tech.hendrik.louw.clojure-for-the-brace-and-true
+(ns tech.hendrik.louw.clojure-for-the-brave-and-true
   (:use clojure.test)
   (:require [clojure.string :as str]))
 
 (deftest strings
- (def test-string "Hello World")
-  (is (= 11
-         (count test-string)))
+  (def test-string "Hello World")
 
-  (is (= \H
-         (get test-string 0)))
+  (testing "count"
+    (is (= 0
+           (count "")))
+    (is (= 11
+           (count test-string))))
 
-  (is (= "Hello"
-         (subs test-string 0 5)))
+  (testing "get"
+    (is (= \H
+           (get test-string 0)))
+    (is (= nil
+           (get test-string 55))))
 
-  (is (= 0
-         (compare "Hello World" test-string)))
+  (testing "subs"
+    (is (= "Hello"
+           (subs test-string 0 5))))
 
-  (is (= "one, two, three"
-         (str/join ", " ["one" "two" "three"])))
+  (testing "compare"
+    (is (= 0
+           (compare "Hello World" test-string))))
 
-  (is (= "for example prevent script tags &lt;script&gt;"
-         (str/escape "for example prevent script tags <script>", {\< "&lt;" \> "&gt;"})))
+  (testing "str/join"
+    (is (= "one, two, three"
+           (str/join ", " ["one" "two" "three"]))))
 
-  (is (= ["Clojure" "is" "awesome"]
-         (str/split "Clojure is awesome" #" ")))
+
+  (testing "str/escape"
+    (is (= "for example prevent script tags &lt;script&gt;"
+           (str/escape "for example prevent script tags <script>", {\< "&lt;" \> "&gt;"}))))
+
+  (testing "str/split"
+    (is (= ["Clojure" "is" "awesome"]
+           (str/split "Clojure is awesome" #" "))))
+
+  (testing "str/replace"
+    (is (= "It is light red"
+           (str/replace "It is pink" #"pink" "light red"))))
   )
