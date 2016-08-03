@@ -63,4 +63,13 @@
   (testing "upper-case"
     (is (= "HELLO THERE"
            (str/upper-case "hello THere"))))
+
+  (testing "trim"
+    (is (= "no spaces"
+           (str/trim "   no spaces    ")))
+    (is (= "no left spaces  "
+           (str/triml "   no left spaces  ")))
+    (is (= "  no right spaces"
+           (str/trimr "  no right spaces   ")))
+    )
   )
