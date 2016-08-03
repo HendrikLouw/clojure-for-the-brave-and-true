@@ -72,4 +72,11 @@
     (is (= "  no right spaces"
            (str/trimr "  no right spaces   ")))
     )
-  )
+
+  (testing "string?"
+    (is (= true
+           (string? "this is a sting")))
+    (is (= false
+           (string? [])))
+    )
+)
